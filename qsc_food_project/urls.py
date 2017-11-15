@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+from qsc_food import views as qsc_food_views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^signup/$', qsc_food_views.signup, name='signup'),
+    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
+
+    #index page
+    url(r'^', qsc_food_views.index, name='index'),
 ]
