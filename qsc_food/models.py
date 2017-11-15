@@ -43,3 +43,22 @@ def create_user_profile(sender, instance, created, **kwargs):
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
 
+
+
+# FOOD DATABASE
+
+class Cuisine(models.Model):
+    name = models.CharField(max_length=128)
+
+class Food(models.Model):
+    cuisine = models.ForeignKey(Cuisine, on_delete=models.CASCADE)
+    name = models.CharField(max_length=128)
+
+class Plate(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Portion(models.Model):
+    plate = models.ForeignKey(Plate, on_delete=models.CASCADE)
+    food = models.ForeignKey(Food, on_delete=models.PROTECT)
+
+

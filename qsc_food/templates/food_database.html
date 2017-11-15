@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+  <h3>Food Database</h3>
+  
+  <select>
+  {% for cuisine in cuisines %}
+    <option value="{{cuisine.id}}">{{cuisine.name}}</option>
+  {% endfor %}
+  </select>
+
+<!--   <a href="/new_cuisine/">Add Personal Cuisine</a> -->
+<a href='/new_cuisine/' class="btn btn-primary btn-lg active" style="width: 100%" role="button" aria-pressed="true">Add Personal Cuisine</a>
+    
+{% endblock %}
+

@@ -24,6 +24,10 @@ urlpatterns = [
     url(r'^signup/$', qsc_food_views.signup, name='signup'),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
+    url(r'^home/$', qsc_food_views.home, name='home'),
+    url(r'^food_database/$', qsc_food_views.food_database, name='food_database'),
+
+    url(r'^new_cuisine/$', qsc_food_views.new_cuisine, name='new_cuisine'),
 
     #index page
     url(r'^', qsc_food_views.index, name='index'),
