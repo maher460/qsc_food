@@ -28,6 +28,9 @@ urlpatterns = [
     url(r'^food_database/$', qsc_food_views.food_database, name='food_database'),
 
     url(r'^new_cuisine/$', qsc_food_views.new_cuisine, name='new_cuisine'),
+    url(r'^select_cuisine/$', qsc_food_views.select_cuisine, name='select_cuisine'),
+
+    url(r'^new_food/$', qsc_food_views.new_food, name='new_food'),
 
     #index page
     url(r'^', qsc_food_views.index, name='index'),

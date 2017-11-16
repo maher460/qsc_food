@@ -53,11 +53,16 @@ class Cuisine(models.Model):
 class Food(models.Model):
     cuisine = models.ForeignKey(Cuisine, on_delete=models.CASCADE)
     name = models.CharField(max_length=128)
+    calories = models.IntegerField()
+    protein = models.IntegerField()
+    fibre = models.IntegerField()
+    sugar = models.IntegerField()
+    fat = models.IntegerField()
 
 class Plate(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-class Portion(models.Model):
+class Partition(models.Model):
     plate = models.ForeignKey(Plate, on_delete=models.CASCADE)
     food = models.ForeignKey(Food, on_delete=models.PROTECT)
 
