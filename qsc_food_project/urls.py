@@ -32,6 +32,8 @@ urlpatterns = [
 
     url(r'^new_food/$', qsc_food_views.new_food, name='new_food'),
 
+    url(r'^report/$', qsc_food_views.report, name='report'),
+
     #index page
     url(r'^', qsc_food_views.index, name='index'),
 ]

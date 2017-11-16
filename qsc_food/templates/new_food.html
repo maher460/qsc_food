@@ -9,22 +9,24 @@
 	<input id="food_name_val" type="text" class="form-control" name="food_name">
 	</br></br>
 	<label for="calories_val">calories:</label>
-	<input id="calories_val" type="text" class="form-control" name="calories">
+	<input id="calories_val" type="number" min="0" class="form-control" name="calories">
 	</br></br>
 	<label for="fat_val">fat:</label>
-	<input id="fat_val" type="text" class="form-control" name="fat">
+	<input id="fat_val" type="number" min="0" class="form-control" name="fat">
 	</br></br>
 	<label for="fibre_val">fibre:</label>
-	<input id="fibre_val" type="text" class="form-control" name="fibre">
+	<input id="fibre_val" type="number" min="0" class="form-control" name="fibre">
 	</br></br>
 	<label for="protein_val">protein:</label>
-	<input id="protein_val" type="text" class="form-control" name="protein">
+	<input id="protein_val" type="number" min="0" class="form-control" name="protein">
 	</br></br>
 	<label for="sugar_val">sugar:</label>
-	<input id="sugar_val" type="text" class="form-control" name="sugar">
+	<input id="sugar_val" type="number" min="0" class="form-control" name="sugar">
 	</br></br>
 
 	<a id="add_new_food" class="btn btn-primary btn-lg active" style="width: 100%" role="button" aria-pressed="true">Add</a>
+	</br></br>
+	<a href='/home/' class="btn btn-primary btn-lg active" style="width: 100%" role="button" aria-pressed="true">Home</a>
 
 	<script type="text/javascript">
 		$(document).ready(function() {

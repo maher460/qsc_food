@@ -151,11 +151,11 @@ def new_food(request):
         logging.warning(data)
 
         new_food = Food(name=str(data['food_name']),
-                        calories=int(data['calories']),
-                        fat=int(data['fat']),
-                        protein=int(data['protein']),
-                        fibre=int(data['fibre']),
-                        sugar=int(data['sugar']), 
+                        calories=float(data['calories']),
+                        fat=float(data['fat']),
+                        protein=float(data['protein']),
+                        fibre=float(data['fibre']),
+                        sugar=float(data['sugar']), 
                         cuisine_id=int(data['cuisine_id']))
         new_food.save()
 
@@ -163,3 +163,25 @@ def new_food(request):
 
     else:
         return JsonResponse({'success': False, 'error': 'Request is not GET or POST'})
+
+@login_required
+def report(request):
+
+    partitions = list(Partition.objects.filter(plate__user_id=request.user.id))
+    foods = map(lambda x: x.food, partitions)
+    total_calories = sum(map(lambda x: x.calories, foods))
+    total_fat = sum(map(lambda x: x.fat, foods))
+    total_sugar = sum(map(lambda x: x.sugar, foods))
+    total_protein = sum(map(lambda x: x.protein, foods))
+    total_fibre = sum(map(lambda x: x.fibre, foods))
+
+    data = {
+        'total_calories': total_calories,
+        'total_fat': total_fat,
+        'total_fibre': total_fibre,
+        'total_sugar': total_sugar,
+        'total_protein': total_protein
+    }
+
+    return render(request, 'report.html', data)
+
