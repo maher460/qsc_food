@@ -63,20 +63,20 @@ def food_database(request):
         new_plate = Plate(user_id=request.user.id)
         new_plate.save()
 
-        if('part_1' in data and data['part_1'] != -1):
-            new_part = Partition(plate_id=new_plate.id, food_id=data['part_1'])
+        if('part_1' in data and int(data['part_1']) != -1):
+            new_part = Partition(plate_id=new_plate.id, food_id=int(data['part_1']))
             new_part.save()
 
-        if('part_2' in data and data['part_2'] != -1):
-            new_part = Partition(plate_id=new_plate.id, food_id=data['part_2'])
+        if('part_2' in data and int(data['part_2']) != -1):
+            new_part = Partition(plate_id=new_plate.id, food_id=int(data['part_2']))
             new_part.save()
 
-        if('part_3' in data and data['part_3'] != -1):
-            new_part = Partition(plate_id=new_plate.id, food_id=data['part_3'])
+        if('part_3' in data and int(data['part_3']) != -1):
+            new_part = Partition(plate_id=new_plate.id, food_id=int(data['part_3']))
             new_part.save()
 
-        if('part_4' in data and data['part_4'] != -1):
-            new_part = Partition(plate_id=new_plate.id, food_id=data['part_4'])
+        if('part_4' in data and int(data['part_4']) != -1):
+            new_part = Partition(plate_id=new_plate.id, food_id=int(data['part_4']))
             new_part.save()
 
         return JsonResponse({'success': True})
